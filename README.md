@@ -3,22 +3,21 @@ SafeArea RectTransform plugin for Unity
 
 ![editor](https://github.com/kado-yasuyuki/SafeAreaRect/blob/master/doc/editor.png)
 
+To test your RectTransform, try to use [com.unity.device-simulator](https://docs.unity3d.com/Manual/com.unity.device-simulator.html)
+
 # Support devices
 
-see [iOSScreenType.cs](https://github.com/kado-yasuyuki/SafeAreaRect/blob/master/Assets/Plugins/SafeAreaRect/Scripts/Screens/iOSScreenType.cs)
+SafeAreaRect uses [Unity - Scripting API: Screen.safeArea](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Screen-safeArea.html)
 
-- iPhone X/XS/11 Pro Portrait
-- iPhone X/XS/11 Pro Landscape
-- iPhone XR/11 Portrait
-- iPhone XR/11 Landscape
-- iPhone XS Max/11 Pro Max Portrait
-- iPhone XS Max/11 Pro Max Landscape
+The supported devices are those supported by Screen.safeArea.
 
-# How to Use
+The SafeArea for each device is available from the script. See [iOSScreenType.cs](https://github.com/kado-yasuyuki/SafeAreaRect/blob/master/Assets/Plugins/SafeAreaRect/Scripts/Screens/iOSScreenType.cs)
 
-import SafeAreaRect unitypackage from release page.
+# Install
 
-see Assets/Plugins/SafeAreaRect/Sample/Scenes/SampleScene.unity scene.
+you can add `https://github.com/kado-yasuyuki/SafeAreaRect.git?path=Assets/Plugins/SafeAreaRect#0.1.1` to Package Manager
+
+or import unitypackage from [release page](https://github.com/kado-yasuyuki/SafeAreaRect/releases).
 
 # License
 
