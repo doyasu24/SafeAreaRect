@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37100077, g: 0.37852794, b: 0.35740092, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &321265
 Canvas:
   m_ObjectHideFlags: 0
@@ -415,8 +416,8 @@ RectTransform:
   m_Father: {fileID: 321266}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04910714, y: 0.050724637}
-  m_AnchorMax: {x: 0.95089287, y: 1}
+  m_AnchorMin: {x: 0.055687204, y: 0.053846154}
+  m_AnchorMax: {x: 0.9443128, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -432,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b334183244f42ba812856f069626d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpdateEveryFrame: 1
 --- !u!1 &1611143111
 GameObject:
   m_ObjectHideFlags: 0
