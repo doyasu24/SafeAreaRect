@@ -1,23 +1,27 @@
 # SafeAreaRect
 SafeArea RectTransform plugin for Unity
 
-![editor](https://github.com/kado-yasuyuki/SafeAreaRect/blob/master/doc/editor.png)
+![editor](./doc/editor.png)
+
+`SafeAreaRect` component automatically adjusts `RectTransform` to the size of the safe area.
 
 To test your RectTransform, try to use [com.unity.device-simulator](https://docs.unity3d.com/Manual/com.unity.device-simulator.html)
+
+![device-simulator](./doc/device-simulator.gif)
 
 # Support devices
 
 SafeAreaRect uses [Unity - Scripting API: Screen.safeArea](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Screen-safeArea.html)
 
-The supported devices are those supported by Screen.safeArea.
-
-The SafeArea for each device is available from the script. See [iOSScreenType.cs](https://github.com/kado-yasuyuki/SafeAreaRect/blob/master/Assets/Plugins/SafeAreaRect/Scripts/Screens/iOSScreenType.cs)
+The supported devices are those supported by `Screen.safeArea`.
 
 # Install
 
-you can add `https://github.com/kado-yasuyuki/SafeAreaRect.git?path=Assets/Plugins/SafeAreaRect#0.1.1` to Package Manager
+you can add `https://github.com/doyasu24/SafeAreaRect.git?path=Assets/Plugins/SafeAreaRect#1.0.0` to Package Manager
 
-or import unitypackage from [release page](https://github.com/kado-yasuyuki/SafeAreaRect/releases).
+![upm](./doc/upm.png)
+
+or import unitypackage from [release page](https://github.com/doyasu24/SafeAreaRect/releases).
 
 # License
 
