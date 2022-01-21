@@ -1,16 +1,17 @@
-using SafeAreaRect.Screens;
+using SafeAreaRect.Internal;
 using UnityEngine;
 
 namespace SafeAreaRect
 {
-    [ExecuteInEditMode]
+    [ExecuteAlways]
     [RequireComponent(typeof(RectTransform))]
     public class SafeAreaRect : MonoBehaviour
     {
-        public bool UpdateEveryFrame = true;
-
         private RectTransform _rectTf;
+
         private Rect _lastSafeArea;
+        private int _lastScreenWidth;
+        private int _lastScreenHeight;
 
         private void Awake()
         {
@@ -20,38 +21,41 @@ namespace SafeAreaRect
 
         private void Update()
         {
-            if (UpdateEveryFrame || Application.isEditor)
-            {
-                UpdateRect();
-            }
+            UpdateRect();
         }
 
-        public void UpdateRect()
+        private void UpdateRect()
         {
-#if UNITY_EDITOR && UNITY_IOS
-            var safeArea = iOSScreenTypeResolver.Resolve().SafeArea;
-#else
             var safeArea = Screen.safeArea;
-#endif
-            ApplySafeArea(safeArea);
-        }
+            var screenWidth = Screen.width;
+            var screenHeight = Screen.height;
 
-        private void ApplySafeArea(Rect safeArea)
-        {
-            if (safeArea == _lastSafeArea) return;
-            _rectTf.anchoredPosition = Vector2.zero;
-            _rectTf.sizeDelta = Vector2.zero;
+            // is same values
+            if (safeArea.Equals(_lastSafeArea) && _lastScreenWidth == screenWidth && _lastScreenHeight == screenHeight)
+            {
+                return;
+            }
 
-            var anchorMin = safeArea.position;
-            var anchorMax = safeArea.position + safeArea.size;
-            anchorMin.x /= Screen.width;
-            anchorMin.y /= Screen.height;
-            anchorMax.x /= Screen.width;
-            anchorMax.y /= Screen.height;
-            _rectTf.anchorMin = anchorMin;
-            _rectTf.anchorMax = anchorMax;
+            ApplySafeArea(safeArea, screenWidth, screenHeight);
 
             _lastSafeArea = safeArea;
+            _lastScreenWidth = screenWidth;
+            _lastScreenHeight = screenHeight;
+        }
+
+        private void ApplySafeArea(Rect safeArea, int screenWidth, int screenHeight)
+        {
+            var anchorMin = safeArea.position;
+            var anchorMax = safeArea.position + safeArea.size;
+            anchorMin.x /= screenWidth;
+            anchorMin.y /= screenHeight;
+            anchorMax.x /= screenWidth;
+            anchorMax.y /= screenHeight;
+
+            _rectTf.anchoredPosition = Vector2.zero;
+            _rectTf.sizeDelta = Vector2.zero;
+            _rectTf.anchorMin = anchorMin.IsFinite() ? anchorMin : Vector2.zero;
+            _rectTf.anchorMax = anchorMax.IsFinite() ? anchorMax : Vector2.one;
         }
     }
 }
